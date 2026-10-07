@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RIFT Alliance Bank</title>
+</head>
+
+<body>
+  <h1>🏦 RIFT Alliance Bank</h1>
+
+  <h2>Alliance Treasury</h2>
+  <h1 id="balance">$10,000</h1>
+
+  <input id="amount" type="number" placeholder="Amount">
+
+  <button onclick="deposit()">Deposit</button>
+  <button onclick="withdraw()">Withdraw</button>
+
+  <h2>Transactions</h2>
+  <ul id="transactions">
+    <li>RIFT Bank created — $10,000</li>
+  </ul>
+
+  <script>
+    let balance = 10000;
+
+    function deposit() {
+      let amount = Number(document.getElementById("amount").value);
+
+      if (amount <= 0) return;
+
+      balance += amount;
+      update();
+      addTransaction("Deposit: +$" + amount);
+    }
+
+    function withdraw() {
+      let amount = Number(document.getElementById("amount").value);
+
+      if (amount <= 0 || amount > balance) return;
+
+      balance -= amount;
+      update();
+      addTransaction("Withdrawal: -$" + amount);
+    }
+
+    function update() {
+      document.getElementById("balance").textContent =
+        "$" + balance.toLocaleString();
+    }
+
+    function addTransaction(text) {
+      let item = document.createElement("li");
+      item.textContent = text;
+      document.getElementById("transactions").prepend(item);
+    }
+  </script>
+</body>
+</html>
