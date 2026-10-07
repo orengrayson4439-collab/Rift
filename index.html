@@ -1,323 +1,671 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rift 💸</title>
+// ⚡ RIFT — FICTIONAL DEMO ACCOUNTS
+// These are fictional/game accounts.
+// No real passwords or financial information are stored.
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+const accounts = [
+  {
+    nation: "Nekromanci",
+    leader: "v558",
+    joined: "03/31/2026",
+    seniority: 8,
+    status: "purple",
+    warSlots: 22,
+    available: 3488.50
+  },
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #111827, #312e81, #0f172a);
-      color: white;
-      padding: 25px;
-    }
+  {
+    nation: "The Peoples Dominion Of Nova",
+    leader: "Zac T",
+    joined: "10/03/2025",
+    seniority: 158,
+    status: "purple",
+    warSlots: 20,
+    available: 3424.40
+  },
 
-    .app {
-      max-width: 900px;
-      margin: auto;
-    }
+  {
+    nation: "Riedeland",
+    leader: "Franzz",
+    joined: "04/16/2026",
+    seniority: 13,
+    status: "purple",
+    warSlots: 21,
+    available: 3187.83
+  },
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-    }
+  {
+    nation: "Pax Union",
+    leader: "Lord Cassius",
+    joined: "02/27/2026",
+    seniority: 219,
+    status: "gray",
+    warSlots: 20,
+    available: 3157.92,
+    vacation: "243.6 days"
+  },
 
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-    }
+  {
+    nation: "Korovia",
+    leader: "Meloncat",
+    joined: "05/31/2026",
+    seniority: 128,
+    status: "purple",
+    warSlots: 16,
+    available: 3151.75
+  },
 
-    .badge {
-      background: #22c55e;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-    }
+  {
+    nation: "Noderianien",
+    leader: "Nauder",
+    joined: "03/25/2026",
+    seniority: 62,
+    status: "purple",
+    warSlots: 20,
+    available: 3143.60
+  },
 
-    .balance {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 25px;
-      padding: 30px;
-      margin-bottom: 20px;
-    }
+  {
+    nation: "Bearland",
+    leader: "Bearie Bearson",
+    joined: "07/07/2026",
+    seniority: 90,
+    status: "purple",
+    warSlots: 20,
+    available: 3127.00
+  },
 
-    .balance p {
-      opacity: 0.7;
-      margin-bottom: 5px;
-    }
+  {
+    nation: "Aledonia",
+    leader: "Fedorov Anatoly",
+    joined: "06/07/2026",
+    seniority: 12,
+    status: "purple",
+    warSlots: 20,
+    available: 3083.82
+  },
 
-    #money {
-      font-size: 48px;
-      margin: 0;
-    }
+  {
+    nation: "Mushahada",
+    leader: "Abbas",
+    joined: "08/03/2026",
+    seniority: 63,
+    status: "purple",
+    warSlots: 20,
+    available: 2955.81
+  },
 
-    .xp {
-      margin-top: 20px;
-    }
+  {
+    nation: "Kingdom of monsters",
+    leader: "ASGORE",
+    joined: "11/16/2025",
+    seniority: 314,
+    status: "purple",
+    warSlots: 16,
+    available: 2912.86,
+    vacation: "54.8 days"
+  },
 
-    .xp-bar {
-      height: 10px;
-      background: #374151;
-      border-radius: 20px;
-      overflow: hidden;
-    }
+  {
+    nation: "The Last Covenant",
+    leader: "Fraxion",
+    joined: "05/22/2026",
+    seniority: 91,
+    status: "purple",
+    warSlots: 13,
+    available: 2892.77,
+    vacation: "5.2 days"
+  },
 
-    #xpFill {
-      height: 100%;
-      width: 35%;
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
-      transition: 0.5s;
-    }
+  {
+    nation: "Sgnaccola",
+    leader: "Visconto",
+    joined: "05/27/2026",
+    seniority: 130,
+    status: "purple",
+    warSlots: 12,
+    available: 2867.95
+  },
 
-    .buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
+  {
+    nation: "Schizophrenia State",
+    leader: "Shahbazi Family",
+    joined: "08/02/2026",
+    seniority: 25,
+    status: "purple",
+    warSlots: 12,
+    available: 2762.00,
+    vacation: "8.8 days"
+  },
 
-    button {
-      border: none;
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+  {
+    nation: "Rodenius",
+    leader: "Lumines",
+    joined: "11/15/2025",
+    seniority: 306,
+    status: "gray",
+    warSlots: 14,
+    available: 2640.99
+  },
 
-    button:hover {
-      transform: translateY(-3px) scale(1.02);
-    }
+  {
+    nation: "Valem VideriusValtoria",
+    leader: "Victor",
+    joined: "08/10/2023",
+    seniority: 25,
+    status: "purple",
+    warSlots: 11,
+    available: 2574.43
+  },
 
-    .deposit {
-      background: #22c55e;
-      color: white;
-    }
+  {
+    nation: "Hollow Legion",
+    leader: "Skippari",
+    joined: "06/14/2026",
+    seniority: 49,
+    status: "purple",
+    warSlots: 12,
+    available: 2563.80
+  },
 
-    .withdraw {
-      background: #ef4444;
-      color: white;
-    }
+  {
+    nation: "The Ministry of Overthinking",
+    leader: "Ivane rudolf stalin",
+    joined: "05/31/2026",
+    seniority: 128,
+    status: "gray",
+    warSlots: 10,
+    available: 2287.25
+  },
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
+  {
+    nation: "Winnington Empire",
+    leader: "Mahad",
+    joined: "08/19/2026",
+    seniority: 47,
+    status: "purple",
+    warSlots: 12,
+    available: 2274.50
+  },
 
-    .card {
-      background: rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+  {
+    nation: "Khazak Republic",
+    leader: "Theodore Bulgaria",
+    joined: "12/02/2025",
+    seniority: 245,
+    status: "gray",
+    warSlots: 12,
+    available: 2233.47
+  },
 
-    .goal {
-      margin-top: 15px;
-    }
+  {
+    nation: "Royal Kingdom",
+    leader: "Enzo",
+    joined: "01/12/2026",
+    seniority: 43,
+    status: "gray",
+    warSlots: 10,
+    available: 1879.87
+  },
 
-    .goal-bar {
-      height: 9px;
-      background: #374151;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 8px;
-    }
+  {
+    nation: "Shadow land",
+    leader: "luwiji",
+    joined: "05/02/2026",
+    seniority: 1,
+    status: "gray",
+    warSlots: 13,
+    available: 1843.36
+  },
 
-    #goalFill {
-      width: 45%;
-      height: 100%;
-      background: #facc15;
-    }
+  {
+    nation: "Gloriana",
+    leader: "Gentle",
+    joined: "06/03/2026",
+    seniority: 123,
+    status: "purple",
+    warSlots: 8,
+    available: 1726.66
+  },
 
-    #transactions {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+  {
+    nation: "Egypt2",
+    leader: "Chosen One",
+    joined: "08/13/2026",
+    seniority: 41,
+    status: "purple",
+    warSlots: 8,
+    available: 1592.47
+  },
 
-    #transactions li {
-      padding: 12px;
-      margin: 8px 0;
-      background: rgba(255,255,255,0.07);
-      border-radius: 12px;
-    }
+  {
+    nation: "Brimloth",
+    leader: "Ace",
+    joined: "04/21/2026",
+    seniority: 169,
+    status: "purple",
+    warSlots: 8,
+    available: 1588.00,
+    vacation: "4.4 days"
+  },
 
-    .egg {
-      margin-top: 20px;
-      text-align: center;
-      opacity: 0.6;
-      cursor: pointer;
-    }
+  {
+    nation: "France Antique",
+    leader: "Antoine I",
+    joined: "04/18/2026",
+    seniority: 170,
+    status: "purple",
+    warSlots: 8,
+    available: 1587.91
+  },
 
-    @media (max-width: 650px) {
-      .grid,
-      .buttons {
-        grid-template-columns: 1fr;
-      }
+  {
+    nation: "Caldeff",
+    leader: "Anarkhy",
+    joined: "04/21/2026",
+    seniority: 167,
+    status: "purple",
+    warSlots: 6,
+    available: 1445.85
+  },
 
-      #money {
-        font-size: 38px;
-      }
-    }
-  </style>
-</head>
+  {
+    nation: "Isle of Nukututaha",
+    leader: "Haliesa Matamua",
+    joined: "09/18/2026",
+    seniority: 4,
+    status: "beige",
+    warSlots: 8,
+    available: 1227.86
+  },
 
-<body>
+  {
+    nation: "zezapur",
+    leader: "misu",
+    joined: "07/17/2026",
+    seniority: 13,
+    status: "gray",
+    warSlots: 8,
+    available: 1213.80
+  },
 
-<div class="app">
+  {
+    nation: "Big Shot Autos",
+    leader: "Xieon",
+    joined: "07/24/2026",
+    seniority: 74,
+    status: "purple",
+    warSlots: 6,
+    available: 1150.72
+  },
 
-  <header>
-    <div class="logo">⚡ RIFT</div>
-    <div class="badge">🧪 DEMO MODE</div>
-  </header>
+  {
+    nation: "The United States of Swag",
+    leader: "John Swag",
+    joined: "09/26/2026",
+    seniority: 11,
+    status: "purple",
+    warSlots: 6,
+    available: 1140.50
+  },
 
-  <section class="balance">
-    <p>Your Rift Balance</p>
-    <h1 id="money">$274.00</h1>
+  {
+    nation: "Akrius",
+    leader: "Dricko",
+    joined: "05/18/2026",
+    seniority: 140,
+    status: "purple",
+    warSlots: 6,
+    available: 1103.77
+  },
 
-    <div class="xp">
-      <small>⚡ Rift XP: <span id="xp">35</span>/100</small>
-      <div class="xp-bar">
-        <div id="xpFill"></div>
-      </div>
-    </div>
-  </section>
+  {
+    nation: "Rising lions",
+    leader: "Scarface",
+    joined: "02/19/2026",
+    seniority: 110,
+    status: "gray",
+    warSlots: 5,
+    available: 1083.91
+  },
 
-  <div class="buttons">
-    <button class="deposit" onclick="deposit()">➕ Deposit $50</button>
-    <button class="withdraw" onclick="withdraw()">➖ Withdraw $50</button>
-  </div>
+  {
+    nation: "TianZhao",
+    leader: "Yuo",
+    joined: "08/08/2026",
+    seniority: 60,
+    status: "purple",
+    warSlots: 5,
+    available: 1042.87
+  },
 
-  <div class="grid">
+  {
+    nation: "United Ecclesia Commonwealth",
+    leader: "Tsetoshi",
+    joined: "03/13/2026",
+    seniority: 50,
+    status: "purple",
+    warSlots: 5,
+    available: 1015.00
+  },
 
-    <div class="card">
-      <h2>🎯 Savings Goal</h2>
-      <p>🚀 Xbox Fund</p>
+  {
+    nation: "Islandia",
+    leader: "Shade E",
+    joined: "08/19/2026",
+    seniority: 43,
+    status: "purple",
+    warSlots: 5,
+    available: 1013.29
+  },
 
-      <div class="goal">
-        <strong>$4,500 / $10,000</strong>
+  {
+    nation: "Galleron",
+    leader: "Seruis",
+    joined: "08/20/2026",
+    seniority: 33,
+    status: "purple",
+    warSlots: 5,
+    available: 972.80
+  },
 
-        <div class="goal-bar">
-          <div id="goalFill"></div>
-        </div>
-      </div>
-    </div>
+  {
+    nation: "freeport",
+    leader: "polmson",
+    joined: "07/16/2026",
+    seniority: 18,
+    status: "purple",
+    warSlots: 5,
+    available: 897.26
+  },
 
-    <div class="card">
-      <h2>🏆 Rift Level</h2>
-      <h1 id="level">Level 4</h1>
-      <p>Keep using Rift to gain XP!</p>
-    </div>
+  {
+    nation: "Maghreb Kingdom",
+    leader: "King Nathan I",
+    joined: "03/28/2025",
+    seniority: 116,
+    status: "purple",
+    warSlots: 4,
+    available: 833.95
+  },
 
-    <div class="card" style="grid-column: 1 / -1;">
-      <h2>🧾 Recent Activity</h2>
+  {
+    nation: "Kurfuerstentum Trier",
+    leader: "Egilbert von Ortenbu",
+    joined: "09/30/2026",
+    seniority: 5,
+    status: "purple",
+    warSlots: 5,
+    available: 789.73
+  },
 
-      <ul id="transactions">
-        <li>🟢 Demo deposit — $100</li>
-        <li>🔴 Demo withdrawal — $25</li>
-        <li>🛒 Pizza — $80</li>
-      </ul>
-    </div>
+  {
+    nation: "Argentine Republic",
+    leader: "Mosquito",
+    joined: "09/10/2026",
+    seniority: 25,
+    status: "purple",
+    warSlots: 4,
+    available: 769.00
+  },
 
-  </div>
+  {
+    nation: "Ecclesia Christi",
+    leader: "James of Romonus",
+    joined: "07/15/2026",
+    seniority: 83,
+    status: "purple",
+    warSlots: 4,
+    available: 769.00
+  },
 
-  <div class="egg" onclick="easterEgg()">
-    ⚡ Rift v1.0 • click me 👀
-  </div>
+  {
+    nation: "South Pacific Island",
+    leader: "Python",
+    joined: "08/24/2026",
+    seniority: 39,
+    status: "purple",
+    warSlots: 4,
+    available: 759.67
+  },
 
-</div>
+  {
+    nation: "Phokeng",
+    leader: "Katleho Mofokeng",
+    joined: "04/21/2026",
+    seniority: 154,
+    status: "purple",
+    warSlots: 4,
+    available: 748.47
+  },
 
-<script>
+  {
+    nation: "United States of Liberty",
+    leader: "Case",
+    joined: "09/20/2026",
+    seniority: 17,
+    status: "purple",
+    warSlots: 4,
+    available: 745.09
+  },
 
-  let balance = 274;
-  let xp = 35;
-  let level = 4;
+  {
+    nation: "Svea Imperie",
+    leader: "Dante I",
+    joined: "08/25/2026",
+    seniority: 41,
+    status: "gray",
+    warSlots: 4,
+    available: 674.20
+  },
 
-  function update() {
-    document.getElementById("money").textContent =
-      "$" + balance.toFixed(2);
+  {
+    nation: "Seraphid Empire",
+    leader: "Kaveh",
+    joined: "07/21/2026",
+    seniority: 77,
+    status: "gray",
+    warSlots: 4,
+    available: 666.70
+  },
 
-    document.getElementById("xp").textContent = xp;
-    document.getElementById("xpFill").style.width = xp + "%";
-    document.getElementById("level").textContent =
-      "Level " + level;
+  {
+    nation: "Vocktollis",
+    leader: "Kage",
+    joined: "10/01/2026",
+    seniority: 6,
+    status: "purple",
+    warSlots: 4,
+    available: 646.11
+  },
+
+  {
+    nation: "Babadare empire",
+    leader: "Stolkard",
+    joined: "08/14/2026",
+    seniority: 42,
+    status: "purple",
+    warSlots: 5,
+    available: 645.30
+  },
+
+  {
+    nation: "Sprunki",
+    leader: "Cristo",
+    joined: "06/08/2026",
+    seniority: 110,
+    status: "purple",
+    warSlots: 4,
+    available: 638.66
+  },
+
+  {
+    nation: "The Republic of Ossetia",
+    leader: "Euro",
+    joined: "08/14/2026",
+    seniority: 52,
+    status: "purple",
+    warSlots: 4,
+    available: 632.08,
+    vacation: "75.2 days"
+  },
+
+  {
+    nation: "Koloria",
+    leader: "King Astro",
+    joined: "10/03/2026",
+    seniority: 3,
+    status: "purple",
+    warSlots: 4,
+    available: 519.44
+  },
+
+  {
+    nation: "Velin collinland",
+    leader: "gray collinsChoco",
+    joined: "10/24/2025",
+    seniority: 12,
+    status: "purple",
+    warSlots: 21,
+    available: 3923.80
+  },
+
+  {
+    nation: "Kukulcantis",
+    leader: "Samuel Penna",
+    joined: "04/26/2026",
+    seniority: 161,
+    status: "gray",
+    warSlots: 19,
+    available: 3922.80
+  },
+
+  {
+    nation: "The Democratic Kampuchea",
+    leader: "Leon Malenkov",
+    joined: "01/16/2026",
+    seniority: 235,
+    status: "purple",
+    warSlots: 20,
+    available: 3920.00
+  },
+
+  {
+    nation: "Damesk",
+    leader: "Icho",
+    joined: "06/11/2026",
+    seniority: 110,
+    status: "purple",
+    warSlots: 20,
+    available: 3907.66
+  },
+
+  {
+    nation: "Hehasajust",
+    leader: "Arro",
+    joined: "07/05/2025",
+    seniority: 433,
+    status: "purple",
+    warSlots: 22,
+    available: 3888.87
+  },
+
+  {
+    nation: "Noxara",
+    leader: "Mihawk",
+    joined: "01/05/2026",
+    seniority: 188,
+    status: "purple",
+    warSlots: 21,
+    available: 3870.00
+  },
+
+  {
+    nation: "Moldavian Republic",
+    leader: "Grigore Sturza",
+    joined: "11/29/2025",
+    seniority: 307,
+    status: "purple",
+    warSlots: 20,
+    available: 3870.00
+  },
+
+  {
+    nation: "National Federation",
+    leader: "Donnerkrawall",
+    joined: "09/11/2025",
+    seniority: 9,
+    status: "beige",
+    warSlots: 26,
+    available: 3851.24
+  },
+
+  {
+    nation: "Dennys",
+    leader: "Angelo",
+    joined: "02/04/2025",
+    seniority: 166,
+    status: "purple",
+    warSlots: 20,
+    available: 3849.80
+  },
+
+  {
+    nation: "Ostlands",
+    leader: "A Dawg",
+    joined: "11/08/2025",
+    seniority: 13,
+    status: "purple",
+    warSlots: 22,
+    available: 3773.25
+  },
+
+  {
+    nation: "Destinyah",
+    leader: "Corroded",
+    joined: "07/15/2026",
+    seniority: 84,
+    status: "purple",
+    warSlots: 20,
+    available: 3768.43
+  },
+
+  {
+    nation: "Forges",
+    leader: "Count Caesar",
+    joined: "04/26/2024",
+    seniority: 192,
+    status: "purple",
+    warSlots: 16,
+    available: 3732.65
+  },
+
+  {
+    nation: "Republic of Ramsey",
+    leader: "Joachim Caruso",
+    joined: "06/17/2026",
+    seniority: 12,
+    status: "purple",
+    warSlots: 20,
+    available: 3669.47
+  },
+
+  {
+    nation: "Berylux",
+    leader: "Henri Hostinger",
+    joined: "02/17/2026",
+    seniority: 214,
+    status: "gray",
+    warSlots: 20,
+    available: 3669.06
+  },
+
+  {
+    nation: "Maxopolis",
+    leader: "Laertes",
+    joined: "—",
+    seniority: 0,
+    status: "purple",
+    warSlots: 0,
+    available: 0
   }
-
-  function addXP(amount) {
-    xp += amount;
-
-    if (xp >= 100) {
-      xp = 0;
-      level++;
-      alert("🔥 LEVEL UP! Rift Level " + level);
-    }
-
-    update();
-  }
-
-  function deposit() {
-    balance += 50;
-
-    addTransaction("🟢 Demo deposit", 50);
-    addXP(10);
-
-    update();
-  }
-
-  function withdraw() {
-    if (balance < 50) {
-      alert("💀 Bro is broke.");
-      return;
-    }
-
-    balance -= 50;
-
-    addTransaction("🔴 Demo withdrawal", 50);
-    addXP(7);
-
-    update();
-  }
-
-  function addTransaction(type, amount) {
-
-    const list = document.getElementById("transactions");
-
-    const item = document.createElement("li");
-
-    item.textContent =
-      type + " — $" + amount;
-
-    list.prepend(item);
-  }
-
-  let clicks = 0;
-
-  function easterEgg() {
-
-    clicks++;
-
-    if (clicks === 7) {
-      alert("🕵️ YOU FOUND THE RIFT SECRET 💀⚡");
-      clicks = 0;
-    }
-  }
-
-  update();
-
-</script>
-
-</body>
-</html>
+];<script src="accounts.js"></script>
