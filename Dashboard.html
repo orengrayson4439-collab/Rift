@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RIFT — Login</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script
+  <div class="login-page">
+
+    <!-- RIFT HEADER -->
+    <div class="rift-logo">⚡</div>
+
+    <h1>RIFT</h1>
+
+    <p class="subtitle">
+      Politics & War Alliance Network
+    </p>
+
+
+    <!-- LOGIN CARD -->
+    <div class="login-card">
+
+      <div class="card-top">
+        <span>SECURE ACCESS</span>
+        <span class="online">● ONLINE</span>
+      </div>
+
+
+      <h2>Welcome back.</h2>
+
+      <p class="login-description">
+        Sign in to access your alliance dashboard.
+      </p>
+
+
+      <!-- LEADER NAME -->
+      <label for="username">
+        👤 Leader Name
+      </label>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter your leader name"
+        autocomplete="username"
+      >
+
+
+      <!-- RIFT CODE -->
+      <label for="password">
+        🔐 RIFT Code
+      </label>
+
+      <div class="password-box">
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your RIFT code"
+          autocomplete="current-password"
+        >
+
+        <button
+          type="button"
+          class="eye"
+          onclick="togglePassword()"
+          aria-label="Show or hide RIFT code"
+        >
+          👁️
+        </button>
+
+      </div>
+
+
+      <!-- LOGIN BUTTON -->
+      <button
+        type="button"
+        class="login-button"
+        onclick="login()"
+      >
+        ENTER RIFT →
+      </button>
+
+
+      <!-- LOGIN MESSAGE -->
+      <div id="loginMessage"></div>
+
+    </div>
+
+
+    <!-- BOTTOM INFO -->
+    <div class="bottom-info">
+
+      <span>🛡️ Alliance Protected</span>
+
+      <span>•</span>
+
+      <span>RIFT v1.0</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
+<script
+</body>
+</html>
