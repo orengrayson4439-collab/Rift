@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>RIFT — Finance</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+<div class="dashboard-page">
+
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="dashboard-header">
+
+    <div class="brand">
+
+      <div class="rift-logo">
+        ⚡
+      </div>
+
+      <div>
+
+        <h1>RIFT</h1>
+
+        <p>
+          ALLIANCE FINANCE NETWORK
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="header-right">
+
+      <span class="online">
+        🟢 ONLINE
+      </span>
+
+      <button
+        class="logout-button"
+        onclick="logout()"
+      >
+        LOG OUT
+      </button>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <nav class="dashboard-nav">
+
+    <button onclick="openPage('dashboard.html')">
+      🏠 Dashboard
+    </button>
+
+    <button onclick="openPage('accounts.html')">
+      👥 Accounts
+    </button>
+
+    <button onclick="openPage('finance.html')">
+      🏦 Finance
+    </button>
+
+    <button onclick="openPage('profile.html')">
+      🌎 Profile
+    </button>
+
+  </nav>
+
+
+
+  <!-- ================= FINANCE HEADER ================= -->
+
+  <section class="welcome-card">
+
+    <div>
+
+      <span class="status">
+        🏦 FINANCE CENTER
+      </span>
+
+      <h2>
+        Alliance Finance
+      </h2>
+
+      <p>
+        Manage your RIFT funds and review financial activity.
+      </p>
+
+    </div>
+
+
+    <div class="command-icon">
+      💰
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= BALANCE ================= -->
+
+  <section class="money-card">
+
+    <div class="money-header">
+
+      <div>
+
+        <small>
+          CURRENT BALANCE
+        </small>
+
+        <div
+          id="financeBalance"
+          class="big-balance"
+        >
+          $0
+        </div>
+
+      </div>
+
+
+      <div class="money-icon">
+        🏦
+      </div>
+
+    </div>
+
+
+    <!-- FINANCE STATS -->
+
+    <div class="money-stats">
+
+      <div class="stat">
+
+        <span>
+          📥 Total Deposited
+        </span>
+
+        <strong id="financeDeposits">
+          $0
+        </strong>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span>
+          📤 Total Withdrawn
+        </span>
+
+        <strong id="financeWithdrawals">
+          $0
+        </strong>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span>
+          💸 Total Spent
+        </span>
+
+        <strong id="financeSpent">
+          $0
+        </strong>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= FINANCE ACTIONS ================= -->
+
+  <section>
+
+    <h3>
+      ⚡ FINANCE ACTIONS
+    </h3>
+
+
+    <div class="action-grid">
+
+
+      <!-- SPEND -->
+
+      <div class="action-card">
+
+        <div class="action-icon">
+          💸
+        </div>
+
+        <h4>
+          Record Spending
+        </h4>
+
+        <p>
+          Record money spent by your nation.
+        </p>
+
+        <input
+          type="number"
+          id="spendAmount"
+          placeholder="Amount"
+          min="1"
+        >
+
+        <input
+          type="text"
+          id="spendReason"
+          placeholder="What was it spent on?"
+        >
+
+        <button
+          class="withdraw-button"
+          onclick="spendMoney()"
+        >
+          RECORD SPENDING →
+        </button>
+
+        <p id="spendMessage"></p>
+
+      </div>
+
+
+
+      <!-- TRANSFER -->
+
+      <div class="action-card">
+
+        <div class="action-icon">
+          🔄
+        </div>
+
+        <h4>
+          Transfer Funds
+        </h4>
+
+        <p>
+          Send RIFT funds to another account.
+        </p>
+
+        <input
+          type="text"
+          id="transferNation"
+          placeholder="Nation / Leader"
+        >
+
+        <input
+          type="number"
+          id="transferAmount"
+          placeholder="Amount"
+          min="1"
+        >
+
+        <button
+          class="deposit-button"
+          onclick="transferMoney()"
+        >
+          TRANSFER →
+        </button>
+
+        <p id="transferMessage"></p>
+
+      </div>
+
+
+
+      <!-- TREASURY -->
+
+      <div class="action-card">
+
+        <div class="action-icon">
+          🏛️
+        </div>
+
+        <h4>
+          Alliance Treasury
+        </h4>
+
+        <p>
+          View alliance treasury information.
+        </p>
+
+        <button
+          class="dashboard-button"
+          onclick="viewTreasury()"
+        >
+          VIEW TREASURY →
+        </button>
+
+        <p id="treasuryMessage"></p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= TRANSACTION HISTORY ================= -->
+
+  <section class="activity-card">
+
+    <h3>
+      📊 TRANSACTION HISTORY
+    </h3>
+
+    <p>
+      Your latest financial activity.
+    </p>
+
+
+    <div
+      id="financeTransactions"
+      class="transaction-list"
+    >
+
+      <div class="transaction">
+
+        <span class="transaction-icon">
+          ⚡
+        </span>
+
+        <div>
+
+          <strong>
+            RIFT Finance
+          </strong>
+
+          <small>
+            No transactions yet.
+          </small>
+
+        </div>
+
+        <span>
+          —
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= FINANCE SECURITY ================= -->
+
+  <section class="status-panel">
+
+    <h3>
+      🛡️ FINANCE SECURITY
+    </h3>
+
+
+    <div class="status-grid">
+
+
+      <div>
+
+        <span>
+          Account
+        </span>
+
+        <strong>
+          🟢 ACTIVE
+        </strong>
+
+      </div>
+
+
+      <div>
+
+        <span>
+          Transactions
+        </span>
+
+        <strong>
+          🛡️ TRACKED
+        </strong>
+
+      </div>
+
+
+      <div>
+
+        <span>
+          RIFT System
+        </span>
+
+        <strong>
+          🟢 ONLINE
+        </strong>
+
+      </div>
+
+
+      <div>
+
+        <span>
+          Version
+        </span>
+
+        <strong>
+          v2.0
+        </strong>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <span>
+      ⚡ RIFT Alliance Network
+    </span>
+
+    <span>
+      🏦 Finance Center
+    </span>
+
+    <span>
+      RIFT v2.0
+    </span>
+
+  </footer>
+
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="finance.js"></script>
+
+</body>
+
+</html>
