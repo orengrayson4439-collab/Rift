@@ -1,510 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RIFT Alliance Bank</title>
+  <title>RIFT — Login</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: white;
-}
-
-header {
-  background: #1e293b;
-  padding: 22px;
-  text-align: center;
-  border-bottom: 2px solid #334155;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 34px;
-}
-
-header p {
-  color: #94a3b8;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
-
-.card {
-  background: #1e293b;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.25);
-}
-
-.balance {
-  font-size: 40px;
-  font-weight: bold;
-  margin: 10px 0 20px;
-}
-
-input,
-select,
-button {
-  width: 100%;
-  padding: 13px;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-}
-
-input,
-select {
-  background: #334155;
-  color: white;
-}
-
-button {
-  background: #2563eb;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: .9;
-}
-
-.withdraw {
-  background: #dc2626;
-}
-
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.resource {
-  background: #334155;
-  padding: 18px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.resource-icon {
-  font-size: 30px;
-}
-
-.resource-name {
-  margin: 6px 0;
-  font-weight: bold;
-}
-
-.resource-number {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  background: #334155;
-  padding: 12px;
-  margin-top: 8px;
-  border-radius: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #64748b;
-}
-
-@media (max-width: 600px) {
-  .resource-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .balance {
-    font-size: 32px;
-  }
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <h1>🏦 RIFT</h1>
-  <p>Politics & War Alliance Banking System</p>
-</header>
-
-<div class="container">
+  <div class="login-page">
 
-<!-- TREASURY -->
+    <!-- RIFT LOGO -->
+    <div class="rift-logo">
+      ⚡
+    </div>
 
-<div class="card">
+    <h1>RIFT</h1>
 
-<h2>💰 Alliance Treasury</h2>
+    <p class="subtitle">
+      Politics & War Alliance Network
+    </p>
 
-<div id="balance" class="balance">
-$10,000
-</div>
-
-<input
-  id="moneyAmount"
-  type="number"
-  min="1"
-  placeholder="Enter amount"
->
-
-<button onclick="depositMoney()">
-📥 Deposit
-</button>
-
-<button class="withdraw" onclick="withdrawMoney()">
-📤 Withdraw
-</button>
-
-</div>
-
-
-<!-- RESOURCES -->
 
-<div class="card">
+    <!-- LOGIN CARD -->
+    <div class="login-card">
 
-<h2>📦 Alliance Resources</h2>
+      <div class="card-top">
+        <span>SECURE ACCESS</span>
 
-<div class="resource-grid">
+        <span class="online">
+          ● ONLINE
+        </span>
+      </div>
 
-<div class="resource">
-<div class="resource-icon">🪨</div>
-<div class="resource-name">Aluminum</div>
-<div id="aluminum" class="resource-number">274</div>
-</div>
 
-<div class="resource">
-<div class="resource-icon">🔩</div>
-<div class="resource-name">Steel</div>
-<div id="steel" class="resource-number">219</div>
-</div>
+      <h2>
+        Welcome back.
+      </h2>
 
-<div class="resource">
-<div class="resource-icon">🛢️</div>
-<div class="resource-name">Oil</div>
-<div id="oil" class="resource-number">0</div>
-</div>
 
-<div class="resource">
-<div class="resource-icon">⛽</div>
-<div class="resource-name">Gasoline</div>
-<div id="gasoline" class="resource-number">0</div>
-</div>
+      <p class="login-description">
+        Sign in to access your alliance dashboard.
+      </p>
 
-<div class="resource">
-<div class="resource-icon">🌾</div>
-<div class="resource-name">Food</div>
-<div id="food" class="resource-number">0</div>
-</div>
 
-<div class="resource">
-<div class="resource-icon">☢️</div>
-<div class="resource-name">Uranium</div>
-<div id="uranium" class="resource-number">0</div>
-</div>
+      <!-- LEADER NAME -->
+      <label for="username">
+        👤 Leader Name
+      </label>
 
-<div class="resource">
-<div class="resource-icon">🧱</div>
-<div class="resource-name">Lead</div>
-<div id="lead" class="resource-number">0</div>
-</div>
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter your leader name"
+        autocomplete="username"
+      >
 
-<div class="resource">
-<div class="resource-icon">🏭</div>
-<div class="resource-name">Coal</div>
-<div id="coal" class="resource-number">0</div>
-</div>
 
-<div class="resource">
-<div class="resource-icon">💣</div>
-<div class="resource-name">Munitions</div>
-<div id="munitions" class="resource-number">0</div>
-</div>
+      <!-- RIFT CODE -->
+      <label for="password">
+        🔐 RIFT Code
+      </label>
 
-<div class="resource">
-<div class="resource-icon">💵</div>
-<div class="resource-name">Cash</div>
-<div id="cash" class="resource-number">0</div>
-</div>
+      <div class="password-box">
 
-</div>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your RIFT code"
+          autocomplete="current-password"
+        >
 
+        <button
+          type="button"
+          onclick="togglePassword()"
+          class="eye"
+          aria-label="Show or hide RIFT code"
+        >
+          👁️
+        </button>
 
-<select id="resourceType">
+      </div>
 
-<option value="aluminum">Aluminum</option>
-<option value="steel">Steel</option>
-<option value="oil">Oil</option>
-<option value="gasoline">Gasoline</option>
-<option value="food">Food</option>
-<option value="uranium">Uranium</option>
-<option value="lead">Lead</option>
-<option value="coal">Coal</option>
-<option value="munitions">Munitions</option>
-<option value="cash">Cash</option>
 
-</select>
+      <!-- LOGIN BUTTON -->
+      <button
+        type="button"
+        class="login-button"
+        onclick="login()"
+      >
+        ENTER RIFT →
+      </button>
 
-<input
-  id="resourceAmount"
-  type="number"
-  min="1"
-  placeholder="Resource amount"
->
 
-<button onclick="addResource()">
-➕ Add Resources
-</button>
+      <!-- LOGIN MESSAGE -->
+      <div id="loginMessage"></div>
 
-</div>
+    </div>
 
 
-<!-- TRANSACTIONS -->
+    <!-- BOTTOM INFO -->
+    <div class="bottom-info">
 
-<div class="card">
+      <span>
+        🛡️ Alliance Protected
+      </span>
 
-<h2>📜 Transaction History</h2>
+      <span>
+        •
+      </span>
 
-<ul id="transactions">
-<li>No transactions yet.</li>
-</ul>
+      <span>
+        RIFT v1.0
+      </span>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 
-<footer>
-RIFT V1.1 • Politics & War only • Not real banking
-</footer>
-
-
-<script>
-
-/* =========================
-   RIFT DATA
-========================= */
-
-const defaultResources = {
-  aluminum: 274,
-  steel: 219,
-  oil: 0,
-  gasoline: 0,
-  food: 0,
-  uranium: 0,
-  lead: 0,
-  coal: 0,
-  munitions: 0,
-  cash: 0
-};
-
-let balance =
-Number(localStorage.getItem("riftBalance")) || 10000;
-
-let resources =
-JSON.parse(localStorage.getItem("riftResources"))
-|| defaultResources;
-
-let transactions =
-JSON.parse(localStorage.getItem("riftTransactions"))
-|| [];
-
-
-/* =========================
-   UPDATE DISPLAY
-========================= */
-
-function updateDisplay() {
-
-  document.getElementById("balance").textContent =
-    "$" + balance.toLocaleString();
-
-  Object.keys(resources).forEach(resource => {
-
-    document.getElementById(resource).textContent =
-      resources[resource].toLocaleString();
-
-  });
-
-  localStorage.setItem(
-    "riftBalance",
-    balance
-  );
-
-  localStorage.setItem(
-    "riftResources",
-    JSON.stringify(resources)
-  );
-
-  localStorage.setItem(
-    "riftTransactions",
-    JSON.stringify(transactions)
-  );
-
-  showTransactions();
-}
-
-
-/* =========================
-   DEPOSIT
-========================= */
-
-function depositMoney() {
-
-  const amount =
-    Number(document.getElementById("moneyAmount").value);
-
-  if (amount <= 0 || isNaN(amount)) {
-    alert("Enter a valid amount.");
-    return;
-  }
-
-  balance += amount;
-
-  transactions.unshift(
-    "📥 Deposited $" +
-    amount.toLocaleString()
-  );
-
-  document.getElementById("moneyAmount").value = "";
-
-  updateDisplay();
-}
-
-
-/* =========================
-   WITHDRAW
-========================= */
-
-function withdrawMoney() {
-
-  const amount =
-    Number(document.getElementById("moneyAmount").value);
-
-  if (amount <= 0 || isNaN(amount)) {
-    alert("Enter a valid amount.");
-    return;
-  }
-
-  if (amount > balance) {
-    alert("❌ Not enough treasury funds.");
-    return;
-  }
-
-  balance -= amount;
-
-  transactions.unshift(
-    "📤 Withdrawn $" +
-    amount.toLocaleString()
-  );
-
-  document.getElementById("moneyAmount").value = "";
-
-  updateDisplay();
-}
-
-
-/* =========================
-   ADD RESOURCE
-========================= */
-
-function addResource() {
-
-  const type =
-    document.getElementById("resourceType").value;
-
-  const amount =
-    Number(document.getElementById("resourceAmount").value);
-
-  if (amount <= 0 || isNaN(amount)) {
-    alert("Enter a valid resource amount.");
-    return;
-  }
-
-  resources[type] += amount;
-
-  const name =
-    type.charAt(0).toUpperCase() +
-    type.slice(1);
-
-  transactions.unshift(
-    "📦 Added " +
-    amount.toLocaleString() +
-    " " +
-    name
-  );
-
-  document.getElementById("resourceAmount").value = "";
-
-  updateDisplay();
-}
-
-
-/* =========================
-   TRANSACTIONS
-========================= */
-
-function showTransactions() {
-
-  const list =
-    document.getElementById("transactions");
-
-  list.innerHTML = "";
-
-  if (transactions.length === 0) {
-
-    list.innerHTML =
-      "<li>No transactions yet.</li>";
-
-    return;
-  }
-
-  transactions
-    .slice(0, 25)
-    .forEach(transaction => {
-
-      const item =
-        document.createElement("li");
-
-      item.textContent = transaction;
-
-      list.appendChild(item);
-
-    });
-}
-
-
-/* =========================
-   START RIFT
-========================= */
-
-updateDisplay();
-
-</script>
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
 
 </body>
-  </html>
 
-  
-
+</html>
