@@ -1,669 +1,510 @@
-const accounts = [
-  {
-    nation: "Nekromanci",
-    leader: "v558",
-    joined: "03/31/2026",
-    seniority: 8,
-    status: "purple",
-    warSlots: 22,
-    available: 3488.50
-  },
-
-  {
-    nation: "The Peoples Dominion Of Nova",
-    leader: "Zac T",
-    joined: "10/03/2025",
-    seniority: 158,
-    status: "purple",
-    warSlots: 20,
-    available: 3424.40
-  },
-
-  {
-    nation: "Riedeland",
-    leader: "Franzz",
-    joined: "04/16/2026",
-    seniority: 13,
-    status: "purple",
-    warSlots: 21,
-    available: 3187.83
-  },
-
-  {
-    nation: "Pax Union",
-    leader: "Lord Cassius",
-    joined: "02/27/2026",
-    seniority: 219,
-    status: "gray",
-    warSlots: 20,
-    available: 3157.92,
-    vacation: "243.6 days"
-  },
-
-  {
-    nation: "Korovia",
-    leader: "Meloncat",
-    joined: "05/31/2026",
-    seniority: 128,
-    status: "purple",
-    warSlots: 16,
-    available: 3151.75
-  },
-
-  {
-    nation: "Noderianien",
-    leader: "Nauder",
-    joined: "03/25/2026",
-    seniority: 62,
-    status: "purple",
-    warSlots: 20,
-    available: 3143.60
-  },
-
-  {
-    nation: "Bearland",
-    leader: "Bearie Bearson",
-    joined: "07/07/2026",
-    seniority: 90,
-    status: "purple",
-    warSlots: 20,
-    available: 3127.00
-  },
-
-  {
-    nation: "Aledonia",
-    leader: "Fedorov Anatoly",
-    joined: "06/07/2026",
-    seniority: 12,
-    status: "purple",
-    warSlots: 20,
-    available: 3083.82
-  },
-
-  {
-    nation: "Mushahada",
-    leader: "Abbas",
-    joined: "08/03/2026",
-    seniority: 63,
-    status: "purple",
-    warSlots: 20,
-    available: 2955.81
-  },
-
-  {
-    nation: "Kingdom of monsters",
-    leader: "ASGORE",
-    joined: "11/16/2025",
-    seniority: 314,
-    status: "purple",
-    warSlots: 16,
-    available: 2912.86,
-    vacation: "54.8 days"
-  },
-
-  {
-    nation: "The Last Covenant",
-    leader: "Fraxion",
-    joined: "05/22/2026",
-    seniority: 91,
-    status: "purple",
-    warSlots: 13,
-    available: 2892.77,
-    vacation: "5.2 days"
-  },
-
-  {
-    nation: "Sgnaccola",
-    leader: "Visconto",
-    joined: "05/27/2026",
-    seniority: 130,
-    status: "purple",
-    warSlots: 12,
-    available: 2867.95
-  },
-
-  {
-    nation: "Schizophrenia State",
-    leader: "Shahbazi Family",
-    joined: "08/02/2026",
-    seniority: 25,
-    status: "purple",
-    warSlots: 12,
-    available: 2762.00,
-    vacation: "8.8 days"
-  },
-
-  {
-    nation: "Rodenius",
-    leader: "Lumines",
-    joined: "11/15/2025",
-    seniority: 306,
-    status: "gray",
-    warSlots: 14,
-    available: 2640.99
-  },
-
-  {
-    nation: "Valem VideriusValtoria",
-    leader: "Victor",
-    joined: "08/10/2023",
-    seniority: 25,
-    status: "purple",
-    warSlots: 11,
-    available: 2574.43
-  },
-
-  {
-    nation: "Hollow Legion",
-    leader: "Skippari",
-    joined: "06/14/2026",
-    seniority: 49,
-    status: "purple",
-    warSlots: 12,
-    available: 2563.80
-  },
-
-  {
-    nation: "The Ministry of Overthinking",
-    leader: "Ivane rudolf stalin",
-    joined: "05/31/2026",
-    seniority: 128,
-    status: "gray",
-    warSlots: 10,
-    available: 2287.25
-  },
-
-  {
-    nation: "Winnington Empire",
-    leader: "Mahad",
-    joined: "08/19/2026",
-    seniority: 47,
-    status: "purple",
-    warSlots: 12,
-    available: 2274.50
-  },
-
-  {
-    nation: "Khazak Republic",
-    leader: "Theodore Bulgaria",
-    joined: "12/02/2025",
-    seniority: 245,
-    status: "gray",
-    warSlots: 12,
-    available: 2233.47
-  },
-
-  {
-    nation: "Royal Kingdom",
-    leader: "Enzo",
-    joined: "01/12/2026",
-    seniority: 43,
-    status: "gray",
-    warSlots: 10,
-    available: 1879.87
-  },
-
-  {
-    nation: "Shadow land",
-    leader: "luwiji",
-    joined: "05/02/2026",
-    seniority: 1,
-    status: "gray",
-    warSlots: 13,
-    available: 1843.36
-  },
-
-  {
-    nation: "Gloriana",
-    leader: "Gentle",
-    joined: "06/03/2026",
-    seniority: 123,
-    status: "purple",
-    warSlots: 8,
-    available: 1726.66
-  },
-
-  {
-    nation: "Egypt2",
-    leader: "Chosen One",
-    joined: "08/13/2026",
-    seniority: 41,
-    status: "purple",
-    warSlots: 8,
-    available: 1592.47
-  },
-
-  {
-    nation: "Brimloth",
-    leader: "Ace",
-    joined: "04/21/2026",
-    seniority: 169,
-    status: "purple",
-    warSlots: 8,
-    available: 1588.00,
-    vacation: "4.4 days"
-  },
-
-  {
-    nation: "France Antique",
-    leader: "Antoine I",
-    joined: "04/18/2026",
-    seniority: 170,
-    status: "purple",
-    warSlots: 8,
-    available: 1587.91
-  },
-
-  {
-    nation: "Caldeff",
-    leader: "Anarkhy",
-    joined: "04/21/2026",
-    seniority: 167,
-    status: "purple",
-    warSlots: 6,
-    available: 1445.85
-  },
-
-  {
-    nation: "Isle of Nukututaha",
-    leader: "Haliesa Matamua",
-    joined: "09/18/2026",
-    seniority: 4,
-    status: "beige",
-    warSlots: 8,
-    available: 1227.86
-  },
-
-  {
-    nation: "zezapur",
-    leader: "misu",
-    joined: "07/17/2026",
-    seniority: 13,
-    status: "gray",
-    warSlots: 8,
-    available: 1213.80
-  },
-
-  {
-    nation: "Big Shot Autos",
-    leader: "Xieon",
-    joined: "07/24/2026",
-    seniority: 74,
-    status: "purple",
-    warSlots: 6,
-    available: 1150.72
-  },
-
-  {
-    nation: "The United States of Swag",
-    leader: "John Swag",
-    joined: "09/26/2026",
-    seniority: 11,
-    status: "purple",
-    warSlots: 6,
-    available: 1140.50
-  },
-
-  {
-    nation: "Akrius",
-    leader: "Dricko",
-    joined: "05/18/2026",
-    seniority: 140,
-    status: "purple",
-    warSlots: 6,
-    available: 1103.77
-  },
-
-  {
-    nation: "Rising lions",
-    leader: "Scarface",
-    joined: "02/19/2026",
-    seniority: 110,
-    status: "gray",
-    warSlots: 5,
-    available: 1083.91
-  },
-
-  {
-    nation: "TianZhao",
-    leader: "Yuo",
-    joined: "08/08/2026",
-    seniority: 60,
-    status: "purple",
-    warSlots: 5,
-    available: 1042.87
-  },
-
-  {
-    nation: "United Ecclesia Commonwealth",
-    leader: "Tsetoshi",
-    joined: "03/13/2026",
-    seniority: 50,
-    status: "purple",
-    warSlots: 5,
-    available: 1015.00
-  },
-
-  {
-    nation: "Islandia",
-    leader: "Shade E",
-    joined: "08/19/2026",
-    seniority: 43,
-    status: "purple",
-    warSlots: 5,
-    available: 1013.29
-  },
-
-  {
-    nation: "Galleron",
-    leader: "Seruis",
-    joined: "08/20/2026",
-    seniority: 33,
-    status: "purple",
-    warSlots: 5,
-    available: 972.80
-  },
-
-  {
-    nation: "freeport",
-    leader: "polmson",
-    joined: "07/16/2026",
-    seniority: 18,
-    status: "purple",
-    warSlots: 5,
-    available: 897.26
-  },
-
-  {
-    nation: "Maghreb Kingdom",
-    leader: "King Nathan I",
-    joined: "03/28/2025",
-    seniority: 116,
-    status: "purple",
-    warSlots: 4,
-    available: 833.95
-  },
-
-  {
-    nation: "Kurfuerstentum Trier",
-    leader: "Egilbert von Ortenbu",
-    joined: "09/30/2026",
-    seniority: 5,
-    status: "purple",
-    warSlots: 5,
-    available: 789.73
-  },
-
-  {
-    nation: "Argentine Republic",
-    leader: "Mosquito",
-    joined: "09/10/2026",
-    seniority: 25,
-    status: "purple",
-    warSlots: 4,
-    available: 769.00
-  },
-
-  {
-    nation: "Ecclesia Christi",
-    leader: "James of Romonus",
-    joined: "07/15/2026",
-    seniority: 83,
-    status: "purple",
-    warSlots: 4,
-    available: 769.00
-  },
-
-  {
-    nation: "South Pacific Island",
-    leader: "Python",
-    joined: "08/24/2026",
-    seniority: 39,
-    status: "purple",
-    warSlots: 4,
-    available: 759.67
-  },
-
-  {
-    nation: "Phokeng",
-    leader: "Katleho Mofokeng",
-    joined: "04/21/2026",
-    seniority: 154,
-    status: "purple",
-    warSlots: 4,
-    available: 748.47
-  },
-
-  {
-    nation: "United States of Liberty",
-    leader: "Case",
-    joined: "09/20/2026",
-    seniority: 17,
-    status: "purple",
-    warSlots: 4,
-    available: 745.09
-  },
-
-  {
-    nation: "Svea Imperie",
-    leader: "Dante I",
-    joined: "08/25/2026",
-    seniority: 41,
-    status: "gray",
-    warSlots: 4,
-    available: 674.20
-  },
-
-  {
-    nation: "Seraphid Empire",
-    leader: "Kaveh",
-    joined: "07/21/2026",
-    seniority: 77,
-    status: "gray",
-    warSlots: 4,
-    available: 666.70
-  },
-
-  {
-    nation: "Vocktollis",
-    leader: "Kage",
-    joined: "10/01/2026",
-    seniority: 6,
-    status: "purple",
-    warSlots: 4,
-    available: 646.11
-  },
-
-  {
-    nation: "Babadare empire",
-    leader: "Stolkard",
-    joined: "08/14/2026",
-    seniority: 42,
-    status: "purple",
-    warSlots: 5,
-    available: 645.30
-  },
-
-  {
-    nation: "Sprunki",
-    leader: "Cristo",
-    joined: "06/08/2026",
-    seniority: 110,
-    status: "purple",
-    warSlots: 4,
-    available: 638.66
-  },
-
-  {
-    nation: "The Republic of Ossetia",
-    leader: "Euro",
-    joined: "08/14/2026",
-    seniority: 52,
-    status: "purple",
-    warSlots: 4,
-    available: 632.08,
-    vacation: "75.2 days"
-  },
-
-  {
-    nation: "Koloria",
-    leader: "King Astro",
-    joined: "10/03/2026",
-    seniority: 3,
-    status: "purple",
-    warSlots: 4,
-    available: 519.44
-  },
-
-  {
-    nation: "Velin collinland",
-    leader: "gray collinsChoco",
-    joined: "10/24/2025",
-    seniority: 12,
-    status: "purple",
-    warSlots: 21,
-    available: 3923.80
-  },
-
-  {
-    nation: "Kukulcantis",
-    leader: "Samuel Penna",
-    joined: "04/26/2026",
-    seniority: 161,
-    status: "gray",
-    warSlots: 19,
-    available: 3922.80
-  },
-
-  {
-    nation: "The Democratic Kampuchea",
-    leader: "Leon Malenkov",
-    joined: "01/16/2026",
-    seniority: 235,
-    status: "purple",
-    warSlots: 20,
-    available: 3920.00
-  },
-
-  {
-    nation: "Damesk",
-    leader: "Icho",
-    joined: "06/11/2026",
-    seniority: 110,
-    status: "purple",
-    warSlots: 20,
-    available: 3907.66
-  },
-
-  {
-    nation: "Hehasajust",
-    leader: "Arro",
-    joined: "07/05/2025",
-    seniority: 433,
-    status: "purple",
-    warSlots: 22,
-    available: 3888.87
-  },
-
-  {
-    nation: "Noxara",
-    leader: "Mihawk",
-    joined: "01/05/2026",
-    seniority: 188,
-    status: "purple",
-    warSlots: 21,
-    available: 3870.00
-  },
-
-  {
-    nation: "Moldavian Republic",
-    leader: "Grigore Sturza",
-    joined: "11/29/2025",
-    seniority: 307,
-    status: "purple",
-    warSlots: 20,
-    available: 3870.00
-  },
-
-  {
-    nation: "National Federation",
-    leader: "Donnerkrawall",
-    joined: "09/11/2025",
-    seniority: 9,
-    status: "beige",
-    warSlots: 26,
-    available: 3851.24
-  },
-
-  {
-    nation: "Dennys",
-    leader: "Angelo",
-    joined: "02/04/2025",
-    seniority: 166,
-    status: "purple",
-    warSlots: 20,
-    available: 3849.80
-  },
-
-  {
-    nation: "Ostlands",
-    leader: "A Dawg",
-    joined: "11/08/2025",
-    seniority: 13,
-    status: "purple",
-    warSlots: 22,
-    available: 3773.25
-  },
-
-  {
-    nation: "Destinyah",
-    leader: "Corroded",
-    joined: "07/15/2026",
-    seniority: 84,
-    status: "purple",
-    warSlots: 20,
-    available: 3768.43
-  },
-
-  {
-    nation: "Forges",
-    leader: "Count Caesar",
-    joined: "04/26/2024",
-    seniority: 192,
-    status: "purple",
-    warSlots: 16,
-    available: 3732.65
-  },
-
-  {
-    nation: "Republic of Ramsey",
-    leader: "Joachim Caruso",
-    joined: "06/17/2026",
-    seniority: 12,
-    status: "purple",
-    warSlots: 20,
-    available: 3669.47
-  },
-
-  {
-    nation: "Berylux",
-    leader: "Henri Hostinger",
-    joined: "02/17/2026",
-    seniority: 214,
-    status: "gray",
-    warSlots: 20,
-    available: 3669.06
-  },
-
-  {
-    nation: "Maxopolis",
-    leader: "Laertes",
-    joined: "—",
-    seniority: 0,
-    status: "purple",
-    warSlots: 0,
-    available: 0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RIFT Alliance Bank</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  background: #1e293b;
+  padding: 22px;
+  text-align: center;
+  border-bottom: 2px solid #334155;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 34px;
+}
+
+header p {
+  color: #94a3b8;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.25);
+}
+
+.balance {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0 20px;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+input,
+select {
+  background: #334155;
+  color: white;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+.withdraw {
+  background: #dc2626;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.resource {
+  background: #334155;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.resource-icon {
+  font-size: 30px;
+}
+
+.resource-name {
+  margin: 6px 0;
+  font-weight: bold;
+}
+
+.resource-number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #334155;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+}
+
+@media (max-width: 600px) {
+  .resource-grid {
+    grid-template-columns: 1fr 1fr;
   }
+
+  .balance {
+    font-size: 32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🏦 RIFT</h1>
+  <p>Politics & War Alliance Banking System</p>
+</header>
+
+<div class="container">
+
+<!-- TREASURY -->
+
+<div class="card">
+
+<h2>💰 Alliance Treasury</h2>
+
+<div id="balance" class="balance">
+$10,000
+</div>
+
+<input
+  id="moneyAmount"
+  type="number"
+  min="1"
+  placeholder="Enter amount"
+>
+
+<button onclick="depositMoney()">
+📥 Deposit
+</button>
+
+<button class="withdraw" onclick="withdrawMoney()">
+📤 Withdraw
+</button>
+
+</div>
+
+
+<!-- RESOURCES -->
+
+<div class="card">
+
+<h2>📦 Alliance Resources</h2>
+
+<div class="resource-grid">
+
+<div class="resource">
+<div class="resource-icon">🪨</div>
+<div class="resource-name">Aluminum</div>
+<div id="aluminum" class="resource-number">274</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">🔩</div>
+<div class="resource-name">Steel</div>
+<div id="steel" class="resource-number">219</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">🛢️</div>
+<div class="resource-name">Oil</div>
+<div id="oil" class="resource-number">0</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">⛽</div>
+<div class="resource-name">Gasoline</div>
+<div id="gasoline" class="resource-number">0</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">🌾</div>
+<div class="resource-name">Food</div>
+<div id="food" class="resource-number">0</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">☢️</div>
+<div class="resource-name">Uranium</div>
+<div id="uranium" class="resource-number">0</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">🧱</div>
+<div class="resource-name">Lead</div>
+<div id="lead" class="resource-number">0</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">🏭</div>
+<div class="resource-name">Coal</div>
+<div id="coal" class="resource-number">0</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">💣</div>
+<div class="resource-name">Munitions</div>
+<div id="munitions" class="resource-number">0</div>
+</div>
+
+<div class="resource">
+<div class="resource-icon">💵</div>
+<div class="resource-name">Cash</div>
+<div id="cash" class="resource-number">0</div>
+</div>
+
+</div>
+
+
+<select id="resourceType">
+
+<option value="aluminum">Aluminum</option>
+<option value="steel">Steel</option>
+<option value="oil">Oil</option>
+<option value="gasoline">Gasoline</option>
+<option value="food">Food</option>
+<option value="uranium">Uranium</option>
+<option value="lead">Lead</option>
+<option value="coal">Coal</option>
+<option value="munitions">Munitions</option>
+<option value="cash">Cash</option>
+
+</select>
+
+<input
+  id="resourceAmount"
+  type="number"
+  min="1"
+  placeholder="Resource amount"
+>
+
+<button onclick="addResource()">
+➕ Add Resources
+</button>
+
+</div>
+
+
+<!-- TRANSACTIONS -->
+
+<div class="card">
+
+<h2>📜 Transaction History</h2>
+
+<ul id="transactions">
+<li>No transactions yet.</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<footer>
+RIFT V1.1 • Politics & War only • Not real banking
+</footer>
+
+
+<script>
+
+/* =========================
+   RIFT DATA
+========================= */
+
+const defaultResources = {
+  aluminum: 274,
+  steel: 219,
+  oil: 0,
+  gasoline: 0,
+  food: 0,
+  uranium: 0,
+  lead: 0,
+  coal: 0,
+  munitions: 0,
+  cash: 0
+};
+
+let balance =
+Number(localStorage.getItem("riftBalance")) || 10000;
+
+let resources =
+JSON.parse(localStorage.getItem("riftResources"))
+|| defaultResources;
+
+let transactions =
+JSON.parse(localStorage.getItem("riftTransactions"))
+|| [];
+
+
+/* =========================
+   UPDATE DISPLAY
+========================= */
+
+function updateDisplay() {
+
+  document.getElementById("balance").textContent =
+    "$" + balance.toLocaleString();
+
+  Object.keys(resources).forEach(resource => {
+
+    document.getElementById(resource).textContent =
+      resources[resource].toLocaleString();
+
+  });
+
+  localStorage.setItem(
+    "riftBalance",
+    balance
+  );
+
+  localStorage.setItem(
+    "riftResources",
+    JSON.stringify(resources)
+  );
+
+  localStorage.setItem(
+    "riftTransactions",
+    JSON.stringify(transactions)
+  );
+
+  showTransactions();
+}
+
+
+/* =========================
+   DEPOSIT
+========================= */
+
+function depositMoney() {
+
+  const amount =
+    Number(document.getElementById("moneyAmount").value);
+
+  if (amount <= 0 || isNaN(amount)) {
+    alert("Enter a valid amount.");
+    return;
+  }
+
+  balance += amount;
+
+  transactions.unshift(
+    "📥 Deposited $" +
+    amount.toLocaleString()
+  );
+
+  document.getElementById("moneyAmount").value = "";
+
+  updateDisplay();
+}
+
+
+/* =========================
+   WITHDRAW
+========================= */
+
+function withdrawMoney() {
+
+  const amount =
+    Number(document.getElementById("moneyAmount").value);
+
+  if (amount <= 0 || isNaN(amount)) {
+    alert("Enter a valid amount.");
+    return;
+  }
+
+  if (amount > balance) {
+    alert("❌ Not enough treasury funds.");
+    return;
+  }
+
+  balance -= amount;
+
+  transactions.unshift(
+    "📤 Withdrawn $" +
+    amount.toLocaleString()
+  );
+
+  document.getElementById("moneyAmount").value = "";
+
+  updateDisplay();
+}
+
+
+/* =========================
+   ADD RESOURCE
+========================= */
+
+function addResource() {
+
+  const type =
+    document.getElementById("resourceType").value;
+
+  const amount =
+    Number(document.getElementById("resourceAmount").value);
+
+  if (amount <= 0 || isNaN(amount)) {
+    alert("Enter a valid resource amount.");
+    return;
+  }
+
+  resources[type] += amount;
+
+  const name =
+    type.charAt(0).toUpperCase() +
+    type.slice(1);
+
+  transactions.unshift(
+    "📦 Added " +
+    amount.toLocaleString() +
+    " " +
+    name
+  );
+
+  document.getElementById("resourceAmount").value = "";
+
+  updateDisplay();
+}
+
+
+/* =========================
+   TRANSACTIONS
+========================= */
+
+function showTransactions() {
+
+  const list =
+    document.getElementById("transactions");
+
+  list.innerHTML = "";
+
+  if (transactions.length === 0) {
+
+    list.innerHTML =
+      "<li>No transactions yet.</li>";
+
+    return;
+  }
+
+  transactions
+    .slice(0, 25)
+    .forEach(transaction => {
+
+      const item =
+        document.createElement("li");
+
+      item.textContent = transaction;
+
+      list.appendChild(item);
+
+    });
+}
+
+
+/* =========================
+   START RIFT
+========================= */
+
+updateDisplay();
+
+</script>
+
+</body>
+  </html>
 
   
 
