@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIFT — Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard-page">
+
+  <!-- HEADER -->
+  <header class="dashboard-header">
+
+    <div class="brand">
+      <div class="rift-logo">⚡</div>
+
+      <div>
+        <h1>RIFT</h1>
+        <p>NATION PROFILE NETWORK</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <span class="online">🟢 ONLINE</span>
+
+      <button class="logout-button" onclick="logout()">
+        LOG OUT
+      </button>
+    </div>
+
+  </header>
+
+
+  <!-- NAVIGATION -->
+  <nav class="dashboard-nav">
+
+    <button onclick="openPage('dashboard.html')">
+      🏠 Dashboard
+    </button>
+
+    <button onclick="openPage('accounts.html')">
+      👥 Accounts
+    </button>
+
+    <button onclick="openPage('finance.html')">
+      🏦 Finance
+    </button>
+
+    <button onclick="openPage('profile.html')">
+      🌎 Profile
+    </button>
+
+  </nav>
+
+
+  <!-- PROFILE HEADER -->
+  <section class="welcome-card">
+
+    <div>
+
+      <span class="status">
+        🌎 NATION PROFILE
+      </span>
+
+      <h2 id="profileName">
+        Loading...
+      </h2>
+
+      <p>
+        Your registered RIFT nation profile.
+      </p>
+
+    </div>
+
+    <div class="command-icon">
+      🌎
+    </div>
+
+  </section>
+
+
+  <!-- PROFILE CARD -->
+  <section class="activity-card">
+
+    <h3>
+      👤 ACCOUNT INFORMATION
+    </h3>
+
+    <div class="status-grid">
+
+      <div>
+        <span>Leader</span>
+        <strong id="leaderName">
+          Loading...
+        </strong>
+      </div>
+
+      <div>
+        <span>Nation</span>
+        <strong id="nationName">
+          Loading...
+        </strong>
+      </div>
+
+      <div>
+        <span>RIFT Status</span>
+        <strong>
+          🟢 ACTIVE
+        </strong>
+      </div>
+
+      <div>
+        <span>Alliance</span>
+        <strong>
+          ETERNAL PHOENIX
+        </strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINANCIAL SUMMARY -->
+  <section class="money-card">
+
+    <div class="money-header">
+
+      <div>
+        <small>
+          YOUR RIFT BALANCE
+        </small>
+
+        <div
+          id="profileBalance"
+          class="big-balance"
+        >
+          $0
+        </div>
+      </div>
+
+      <div class="money-icon">
+        💰
+      </div>
+
+    </div>
+
+
+    <div class="money-stats">
+
+      <div class="stat">
+        <span>📥 Deposited</span>
+
+        <strong id="profileDeposits">
+          $0
+        </strong>
+      </div>
+
+      <div class="stat">
+        <span>📤 Withdrawn</span>
+
+        <strong id="profileWithdrawals">
+          $0
+        </strong>
+      </div>
+
+      <div class="stat">
+        <span>💸 Spent</span>
+
+        <strong id="profileSpent">
+          $0
+        </strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RIFT CODE -->
+  <section class="activity-card">
+
+    <h3>
+      🔐 RIFT ACCOUNT CODE
+    </h3>
+
+    <p>
+      Your registered access code.
+    </p>
+
+    <div
+      id="riftCode"
+      style="
+        margin-top: 15px;
+        padding: 18px;
+        background: #f4f7ff;
+        border-radius: 12px;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-align: center;
+      "
+    >
+      Loading...
+    </div>
+
+  </section>
+
+
+  <!-- QUICK ACTIONS -->
+  <section>
+
+    <h3>
+      ⚡ PROFILE ACTIONS
+    </h3>
+
+    <div class="dashboard-grid">
+
+      <button
+        class="dashboard-button"
+        onclick="openPage('finance.html')"
+      >
+        <span class="menu-icon">🏦</span>
+        <strong>Finance</strong>
+        <small>Manage your funds</small>
+      </button>
+
+      <button
+        class="dashboard-button"
+        onclick="openPage('accounts.html')"
+      >
+        <span class="menu-icon">👥</span>
+        <strong>Accounts</strong>
+        <small>View alliance nations</small>
+      </button>
+
+      <button
+        class="dashboard-button"
+        onclick="openPage('dashboard.html')"
+      >
+        <span class="menu-icon">🏠</span>
+        <strong>Dashboard</strong>
+        <small>Return to command center</small>
+      </button>
+
+      <button
+        class="dashboard-button"
+        onclick="alert('RIFT settings coming soon! ⚡')"
+      >
+        <span class="menu-icon">⚙️</span>
+        <strong>Settings</strong>
+        <small>Coming soon</small>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- STATUS -->
+  <section class="status-panel">
+
+    <h3>
+      🛡️ PROFILE STATUS
+    </h3>
+
+    <div class="status-grid">
+
+      <div>
+        <span>Network</span>
+        <strong>🟢 ONLINE</strong>
+      </div>
+
+      <div>
+        <span>Account</span>
+        <strong>🟢 ACTIVE</strong>
+      </div>
+
+      <div>
+        <span>Security</span>
+        <strong>🛡️ PROTECTED</strong>
+      </div>
+
+      <div>
+        <span>Version</span>
+        <strong>v2.0</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <span>⚡ RIFT Alliance Network</span>
+    <span>🌎 Nation Profile</span>
+    <span>RIFT v2.0</span>
+
+  </footer>
+
+</div>
+
+
+<script src="profile.js"></script>
+
+</body>
+</html>
